@@ -12,6 +12,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var dateTF: UITextField!
     @IBOutlet weak var monthTF: UITextField!
     @IBOutlet weak var yearTF: UITextField!
+    
     @IBOutlet weak var buttonFindDay: UIButton!
     
     @IBOutlet weak var resultLabel: UILabel!
@@ -19,17 +20,15 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         buttonFindDay.layer.cornerRadius = 10
-   
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
-        
     }
     
     @IBAction func findDay(_ sender: UIButton) {
         
-        guard let day = dateTF.text, let month = monthTF.text, let year = yearTF.text else {return}
+        guard let day = dateTF.text, let month = monthTF.text, let year = yearTF.text else { return }
         
         let calendar = Calendar.current
         var dateComponents = DateComponents()
@@ -47,8 +46,6 @@ class ViewController: UIViewController {
         let capitalizedWeekday = weekday.capitalized
         
         resultLabel.text = capitalizedWeekday
-        
     }
-    
 }
 
